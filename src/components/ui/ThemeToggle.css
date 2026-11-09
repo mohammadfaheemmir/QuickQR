@@ -1,0 +1,59 @@
+.theme-toggle {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  background: var(--color-surface);
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition:
+    background-color 0.15s var(--ease),
+    border-color 0.15s var(--ease),
+    color 0.15s var(--ease);
+}
+
+.theme-toggle:hover {
+  border-color: var(--color-primary-border);
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+}
+
+@media (min-width: 768px) {
+  .theme-toggle {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* Both icons are stacked; the active one rotates/scales in. */
+.theme-toggle__icon {
+  grid-area: 1 / 1;
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  transform: rotate(-90deg) scale(0.5);
+  transition:
+    opacity 0.25s var(--ease),
+    transform 0.35s var(--ease);
+}
+
+/* Keep the icon swap animating even while the page-wide theme fade is active */
+.theme-transition .theme-toggle__icon {
+  transition:
+    opacity 0.25s var(--ease),
+    transform 0.35s var(--ease) !important;
+}
+
+.theme-toggle__icon.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+.theme-toggle__icon svg {
+  width: 18px;
+  height: 18px;
+}

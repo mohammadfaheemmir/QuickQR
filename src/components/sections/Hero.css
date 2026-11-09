@@ -1,0 +1,128 @@
+.hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 44px 0 36px;
+  text-align: center;
+}
+
+@media (min-width: 1024px) {
+  .hero {
+    padding: 56px 0 40px;
+  }
+}
+
+/* Faint dotted grid that echoes QR modules, faded out at the edges */
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image: radial-gradient(circle at 1px 1px, var(--hero-dot) 1px, transparent 0);
+  background-size: 22px 22px;
+  -webkit-mask-image: radial-gradient(ellipse 70% 85% at 50% 35%, #000 30%, transparent 75%);
+  mask-image: radial-gradient(ellipse 70% 85% at 50% 35%, #000 30%, transparent 75%);
+}
+
+/* Soft indigo glow behind the headline */
+.hero__bg::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: -20%;
+  width: min(720px, 95vw);
+  aspect-ratio: 1;
+  transform: translateX(-50%);
+  background: radial-gradient(circle, var(--hero-glow), transparent 65%);
+}
+
+.hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border: 1px solid var(--color-primary-border);
+  border-radius: var(--radius-pill);
+  background: var(--color-primary-soft);
+  color: var(--color-primary-hover);
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+.hero__badge svg {
+  width: 14px;
+  height: 14px;
+}
+
+.hero__title {
+  margin-top: 20px;
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.hero__title span {
+  display: inline-block;
+  animation: hero-rise 0.6s var(--ease) both;
+}
+
+.hero__title span:nth-child(2) {
+  animation-delay: 0.08s;
+}
+
+.hero__title span:nth-child(3) {
+  animation-delay: 0.16s;
+}
+
+.hero__accent {
+  color: var(--color-primary);
+}
+
+.hero__subtitle {
+  max-width: 36rem;
+  margin: 16px auto 0;
+  font-size: clamp(1rem, 0.5vw + 0.9rem, 1.125rem);
+}
+
+.hero__jump {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  margin-top: 16px;
+  padding: 0 8px;
+  border-radius: var(--radius-sm);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.hero__jump svg {
+  width: 16px;
+  height: 16px;
+  animation: hero-bob 1.8s ease-in-out infinite;
+}
+
+@media (min-width: 768px) {
+  .hero__jump {
+    display: none;
+  }
+}
+
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes hero-bob {
+  50% {
+    transform: translateY(3px);
+  }
+}

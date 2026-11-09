@@ -1,0 +1,84 @@
+.color-field {
+  min-width: 0;
+}
+
+.color-field__control {
+  display: flex;
+  gap: 8px;
+}
+
+.color-field__swatch {
+  position: relative;
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-sm);
+  box-shadow: inset 0 0 0 2px var(--swatch-inset);
+  cursor: pointer;
+  transition:
+    border-color 0.15s var(--ease),
+    box-shadow 0.15s var(--ease);
+}
+
+.color-field__swatch:hover {
+  border-color: var(--color-border-hover);
+}
+
+.color-field__swatch:focus-within {
+  border-color: var(--color-primary);
+  box-shadow:
+    inset 0 0 0 2px var(--swatch-inset),
+    var(--focus-ring);
+}
+
+/* The native picker covers the swatch invisibly so clicks/taps open it. */
+.color-field__swatch input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.color-field__swatch input:focus-visible {
+  outline: none;
+}
+
+.color-field__hex {
+  flex: 1;
+  min-width: 0;
+  height: 48px;
+  padding: 0 12px;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-family: var(--font-mono);
+  font-size: 1rem; /* ≥16px prevents iOS zoom on focus */
+  text-transform: uppercase;
+  transition:
+    border-color 0.15s var(--ease),
+    box-shadow 0.15s var(--ease);
+}
+
+.color-field__hex:hover {
+  border-color: var(--color-border-hover);
+}
+
+.color-field__hex:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: var(--focus-ring);
+}
+
+.color-field__hex.is-invalid {
+  border-color: var(--color-error);
+}
+
+.color-field__hex.is-invalid:focus {
+  box-shadow: var(--focus-ring-error);
+}

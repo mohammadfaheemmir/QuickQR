@@ -1,0 +1,121 @@
+.how {
+  padding: 56px 0 64px;
+  border-top: 1px solid var(--color-border);
+  background: var(--color-surface);
+}
+
+@media (min-width: 1024px) {
+  .how {
+    padding: 80px 0;
+  }
+}
+
+.how__header {
+  max-width: 36rem;
+  margin: 0 auto 40px;
+  text-align: center;
+}
+
+.how__eyebrow {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.how__header h2 {
+  margin-top: 8px;
+  font-size: clamp(1.5rem, 2vw + 1rem, 2rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.how__header p:last-child {
+  margin-top: 12px;
+}
+
+.how__steps {
+  display: grid;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 768px) {
+  .how__steps {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+}
+
+.how__step {
+  position: relative;
+  padding: 24px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-bg);
+  transition:
+    transform 0.2s var(--ease),
+    box-shadow 0.2s var(--ease),
+    border-color 0.2s var(--ease);
+}
+
+.how__step:hover {
+  border-color: var(--color-primary-border);
+  box-shadow: var(--shadow-card);
+  transform: translateY(-2px);
+}
+
+.how__num {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+}
+
+.how__icon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  margin-bottom: 16px;
+  border-radius: var(--radius-md);
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+}
+
+.how__icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.how__step h3 {
+  font-size: 1.0625rem;
+  font-weight: 700;
+}
+
+.how__step p {
+  margin-top: 6px;
+  font-size: 0.9375rem;
+}
+
+.how__privacy {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 32px;
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+.how__privacy svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  color: var(--color-success-text);
+}
