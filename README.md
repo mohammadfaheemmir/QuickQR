@@ -2,6 +2,8 @@
 
 A fast, private QR code generator that runs entirely in your browser. Enter a link or any text, customize the colours and size, and download a crisp PNG — no account, no uploads, no backend.
 
+**🔗 Live demo: [quickqrscanner.netlify.app](https://quickqrscanner.netlify.app/)**
+
 ## Features
 
 - **Instant generation** from URLs or plain text, with smart URL detection and an "Add https://" helper
